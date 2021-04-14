@@ -30,7 +30,7 @@ class Questions
     private $is_multiple;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="questions")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="questions")
      */
     private $user_id;
 
@@ -84,6 +84,12 @@ class Questions
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->libelle;
+    }
+
 
     /**
      * @return Collection|Reponses[]

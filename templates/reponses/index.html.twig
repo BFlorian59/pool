@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Libelle_choise</th>
+                {# <th>Questions</th> #}
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
             <tr>
                 <td>{{ reponse.id }}</td>
                 <td>{{ reponse.libelleChoise }}</td>
+                {# <td>{{ reponse.question_id }}</td> #}
                 <td>
                     <a href="{{ path('reponses_show', {'id': reponse.id}) }}">show</a>
                     <a href="{{ path('reponses_edit', {'id': reponse.id}) }}">edit</a>

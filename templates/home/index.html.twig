@@ -5,6 +5,7 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {# Bloc destiné à recevoir le CSS spécifique à la page #}
+
 {% block stylesheets %}
 
 {% endblock %}
@@ -12,6 +13,12 @@
 {# Bloc destiné à recevoir le contenu HTML de la page #}
 {% block body %}
     <h1>Home page</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success" role="alert">{{ message }}</div>
+    {% endfor %}
+
+
     <p>Hello world</p>
 {% endblock %}
 

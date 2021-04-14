@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Reponses;
 use App\Form\ReponsesType;
 use App\Repository\ReponsesRepository;
-use App\Repository\UserRepository;
+use App\Repository\QuestionsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,14 +23,14 @@ class ReponsesController extends AbstractController
     }
 
     #[Route('/new', name: 'reponses_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, UserRepository $userRepository): Response
+    public function new(Request $request, QuestionsRepository $questionsRepository): Response
     {
         $reponse = new Reponses();
         $form = $this->createForm(ReponsesType::class, $reponse);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $question->setUserId($userRepository->find(1));
+            $reponse->setquestionId($questionsRepository->find(1));
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($reponse);
             $entityManager->flush();
