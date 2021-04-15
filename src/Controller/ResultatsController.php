@@ -14,10 +14,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class ResultatsController extends AbstractController
 {
     #[Route('/', name: 'resultats_index', methods: ['GET'])]
-    public function index(ResultatsRepository $resultatsRepository): Response
+    public function index(ResultatsRepository $sql): Response
     {
         return $this->render('resultats/index.html.twig', [
-            'resultats' => $resultatsRepository->findAll(),
+            'resultats' => $sql->findAll(),
         ]);
     }
 

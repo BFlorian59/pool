@@ -19,6 +19,17 @@ class ResultatsRepository extends ServiceEntityRepository
         parent::__construct($registry, Resultats::class);
     }
 
+
+    public function Resulats($sql)
+    {
+        $sql= "SELECT FROM * resultats
+        INNER JOIN reponses ON reponses.id = resultats.reponse_id
+        WHERE questions= 1";
+
+        
+    }
+
+
     // /**
     //  * @return Resultats[] Returns an array of Resultats objects
     //  */
