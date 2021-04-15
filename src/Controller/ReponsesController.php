@@ -15,10 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class ReponsesController extends AbstractController
 {
     #[Route('/', name: 'reponses_index', methods: ['GET'])]
-    public function index(ReponsesRepository $reponsesRepository): Response
+    public function index(ReponsesRepository $sql)
     {
         return $this->render('reponses/index.html.twig', [
-            'reponses' => $reponsesRepository->findAll(),
+            'reponses' => $sql
         ]);
     }
 

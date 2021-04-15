@@ -19,6 +19,15 @@ class ReponsesRepository extends ServiceEntityRepository
         parent::__construct($registry, Reponses::class);
     }
 
+
+
+    public function afficherep($sql)
+    {
+        $sql="SELECT FROM * reponses
+        WHERE question_id_id = 1";
+
+    }
+
     // /**
     //  * @return Reponses[] Returns an array of Reponses objects
     //  */
