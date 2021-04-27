@@ -23,8 +23,10 @@
                 {# <td>{{ question.user_id }}</td> #}
                 <td>{{ question.isMultiple ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('reponses_index', {'id': question.id}) }}">Voir les réponses</a>
-                    <a href="{{ path('questions_edit', {'id': question.id}) }}">edit</a>
+                    <a href="{{ path('reponses_index', {'id': question.id}) }}">Voir les réponses /</a>
+                    <a href="{{ path('questions_edit', {'id': question.id}) }}">Modifier la question /</a>
+                    <a href="{{ path('questions_results',{'id': question.id}) }}">Voir les résultats /</a>
+                    <a href="{{ path('questions_show', {'id': question.id}) }}">Répondre</a>
                 </td>
             </tr>
         {% else %}
@@ -35,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('questions_new') }}">Create new</a>
+    <a href="{{ path('questions_new') }}">Créer un question</a>
 {% endblock %}

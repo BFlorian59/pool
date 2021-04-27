@@ -13,20 +13,24 @@
             <nav class="navbar primary">
                 {# <a href="{{ path('app_home') }}" class="navbar-brand">PetitesAnnonces</a> #}
                 <div class="navbar-menu ml-auto">
-                    <a class="navbar-link" href="#">Accueil</a>
-                    <a class="navbar-link" href="#">Link 2</a>
-                    <a class="navbar-link" href="#">Link 3</a>
-                    <a class="navbar-link" href="#">Link 4</a>
+                    <a class="navbar-link" href="{{ path('questions_index') }}">Voir les questions</a>
                 </div>
             </nav>
         </header>
 
         <main>
+            {% for message in app.flashes('error')%}
+                    <div class" alert alert-danger " role="alert">{{message}}</div>
+            {% endfor %}
+            {% for message in app.flashes('success')%}
+                    <div class" alert alert-success " role="alert">{{message}}</div>
+            {% endfor %}
             {% block body %}{% endblock %}
+            
         </main>
 
         <footer class="footer primary">
-            Copyright © 2019 - Example
+            Copyright © 2019 - Broeks Florian-Noblet Damien
         </footer>
 
        

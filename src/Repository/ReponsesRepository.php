@@ -19,14 +19,21 @@ class ReponsesRepository extends ServiceEntityRepository
         parent::__construct($registry, Reponses::class);
     }
 
-
-
-    public function afficherep($sql)
+    public function haveAlreadyReponse($questionId, $ip)
     {
-        $sql="SELECT FROM * reponses
-        WHERE question_id_id = 1";
 
+        $entityManager = $this-> getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT q
+            FROM App\Entity\Resultats r WITH r.reponse = q.id
+            WHERE q.question = :question AND r.ip = :ip'
+        )
+        ->setParameter('question', $questionId)
+        ->setParameter('ip', $ip);
+
+        return count($query->getResult()) > 0;
     }
+
 
     // /**
     //  * @return Reponses[] Returns an array of Reponses objects

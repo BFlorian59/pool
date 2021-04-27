@@ -9,9 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Libelle_choise</th>
-                {# <th>Questions</th> #}
-                <th>actions</th>
+                <th>Libelle_choise</th
             </tr>
         </thead>
         <tbody>
@@ -19,7 +17,7 @@
             <tr>
                 <td>{{ reponse.id }}</td>
                 <td>{{ reponse.libelleChoise }}</td>
-                {# <td>{{ reponse.question_id }}</td> #}
+               
                 <td>
                     <a href="{{ path('reponses_show', {'id': reponse.id}) }}">show</a>
                     <a href="{{ path('reponses_edit', {'id': reponse.id}) }}">edit</a>
@@ -33,5 +31,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('reponses_new') }}">Create new</a>
+    <a href="{{ path('reponses_new', {'id': question.id}) }}">Create new</a>
 {% endblock %}

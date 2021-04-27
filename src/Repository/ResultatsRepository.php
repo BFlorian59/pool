@@ -20,15 +20,7 @@ class ResultatsRepository extends ServiceEntityRepository
     }
 
 
-    public function Resulats($sql)
-    {
-        $sql= "SELECT FROM * resultats
-        INNER JOIN reponses ON reponses.id = resultats.reponse_id
-        WHERE questions= 1";
-
-        
-    }
-
+   
 
     // /**
     //  * @return Resultats[] Returns an array of Resultats objects

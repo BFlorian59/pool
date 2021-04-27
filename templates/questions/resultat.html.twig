@@ -1,3 +1,21 @@
+{# {% extends 'base.html.twig' %}
+
+{% block title %}Questions{% endblock %}
+
+{% block body %}
+    <h1>{{question.libelle}}</h1>
+
+    <form action="{{ path('questions_resultat', {'id': question.id}) }}" methode="post">
+        {% set input_type = question.isMultiple ? 'checkbox': 'radio' %}
+
+        {% for r in question.reponses %}
+        <input type="{{input_type}}" name="resultat[]" value="{{ r.id }}"> {{r.reponse}} <br />
+        {% endfor %}
+
+        <button class="btn">Envoyer</button>
+    </form>  
+{% endblock %} #}
+{# 
 {% extends 'base.html.twig' %}
 
 {% block title %} Question : {{ question.libelle }} {% endblock %}
@@ -9,7 +27,7 @@
     <form action="{{ path('questions_resultat', {'id': question.id}) }}" method="post" style="margin-left: 2%;">
         {% set input_type=question.isMultiple ? 'checkbox' : 'radio' %}
 
-        {% for reponse in question.reponses %}
+        {% for reponse in reponses %}
             <input type="{{input_type}}" name="resultat[]" value="{{reponse.id}}"> {{reponse.libelleChoise}} <br />
         {% endfor %}
 
@@ -18,4 +36,4 @@
 
     <a href="{{ path('questions_index') }}"> <p style="margin-top: 2%; margin-left: 2%;"> Retour à la liste </p> </a>
 </main>
-{% endblock %}
+{% endblock %} #}

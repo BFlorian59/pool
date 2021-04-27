@@ -13,9 +13,7 @@ class QuestionsType extends AbstractType
     {
         $builder
             ->add('libelle')
-            ->add('is_multiple')
-            ->add('user_id')
-        ;
+            ->add('is_multiple');
     }
 
     public function configureOptions(OptionsResolver $resolver)

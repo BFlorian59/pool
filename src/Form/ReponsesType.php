@@ -13,7 +13,7 @@ class ReponsesType extends AbstractType
     {
         $builder
             ->add('libelle_choise')
-            ->add('question_id')
+            
         ;
     }
 

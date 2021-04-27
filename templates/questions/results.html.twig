@@ -1,0 +1,35 @@
+{# {% extends 'base.html.twig'  %}
+
+{% block title %} Questions {% endblock %}
+
+{% block body %}
+
+    <h1>{{question.libelle }}</h1>
+
+    <ul>
+    {% for r in question.reponses  %}
+        <li>[{{r.resultats|lenght}}] {{r.reponses}} </li>
+    {% endblock %} #}
+
+    {% extends 'base.html.twig' %}
+
+{% block title %} Résultats : {{ question.libelle }} {% endblock %}
+
+{% block body %}
+    <main style="padding: 2%;">
+    <h1> Résultat de la question : {{ question.libelle }} </h1>
+
+    <div style="margin-left: 2%; font-size: 20px">
+        {% for reponse in reponses %}
+            <p> {{reponse.libelleChoise}} = {{ resultats[reponse.id] }} vote(s)</p>
+        {% endfor %}
+    </div>
+
+    <p> Nombre total de votes : {{ resultsTotal }} </p>
+
+    <a href="{{ path('questions_index') }}"> <p style="margin-top: 2%; margin-left: 2%;"> Retour à la liste </p> </a>
+
+    </main>
+{% endblock %}
+
+    
