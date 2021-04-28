@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Resultats;
+use App\Entity\Reponses;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +18,20 @@ class ResultatsRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Resultats::class);
+    }
+
+    public function haveAlreadyAnswered(int $questionId, string $ip){
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT q
+            FROM App\Entity\Reponses q
+            INNER JOIN App\Entity\Resultats a WITH a.reponse_id = q.id
+            WHERE q.question_id = :question AND a.ip = :ip'
+        )
+        ->setParameter('question', $questionId)
+        ->setParameter('ip', $ip);
+
+        return count($query->getResult()) > 0;
     }
 
 
